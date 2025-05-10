@@ -5,14 +5,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import co.edu.javeriana.as.personapp.mariadb.entity.TelefonoEntity;
 import co.edu.javeriana.as.personapp.mariadb.mapper.TelefonoMapperMaria;
 import co.edu.javeriana.as.personapp.mariadb.repository.TelefonoRepositoryMaria;
 import co.edu.javeriana.as.personapp.domain.Phone;
 import co.edu.javeriana.as.personapp.application.port.out.PhoneOutputPort;
+import co.edu.javeriana.as.personapp.common.annotations.Adapter;
 
-@Component
+@Adapter("phoneOutputAdapterMaria")
 public class TelefonoOutputAdapterMaria implements PhoneOutputPort {
 
     @Autowired

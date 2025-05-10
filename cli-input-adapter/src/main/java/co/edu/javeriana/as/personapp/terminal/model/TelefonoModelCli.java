@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PhoneModelCli {
+public class TelefonoModelCli {
     private String numero;
     private String operadora;
     private Integer duenioId;

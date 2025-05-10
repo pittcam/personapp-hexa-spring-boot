@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Adapter("professionOutPutAdapterMaria")
+@Adapter("professionOutputAdapterMaria")
 @Transactional
 public class ProfessionOutputAdapterMaria implements ProfessionOutputPort {
     @Autowired

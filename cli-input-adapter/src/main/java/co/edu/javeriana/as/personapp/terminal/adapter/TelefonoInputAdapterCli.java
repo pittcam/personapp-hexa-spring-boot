@@ -8,8 +8,8 @@ import co.edu.javeriana.as.personapp.common.exceptions.InvalidOptionException;
 import co.edu.javeriana.as.personapp.common.exceptions.NoExistException;
 import co.edu.javeriana.as.personapp.common.setup.DatabaseOption;
 import co.edu.javeriana.as.personapp.domain.Phone;
-import co.edu.javeriana.as.personapp.terminal.mapper.PhoneMapperCli;
-import co.edu.javeriana.as.personapp.terminal.model.PhoneModelCli; 
+import co.edu.javeriana.as.personapp.terminal.mapper.TelefonoMapperCli;
+import co.edu.javeriana.as.personapp.terminal.model.TelefonoModelCli;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Adapter
-public class PhoneInputAdapterCli {
+public class TelefonoInputAdapterCli {
 
     @Autowired
     @Qualifier("phoneOutputAdapterMaria")
@@ -30,7 +30,7 @@ public class PhoneInputAdapterCli {
     private PhoneOutputPort phoneOutputPortMongo;
 
     @Autowired
-    private PhoneMapperCli telefonoMapperCli;
+    private TelefonoMapperCli telefonoMapperCli;
 
     private PhoneInputPort phoneInputPort;
 
@@ -43,11 +43,11 @@ public class PhoneInputAdapterCli {
             throw new InvalidOptionException("Invalid database option: " + dbOption);
         }
     }
-    
+
     public void historial() {
         log.info("Into historial TelefonoEntity in Input Adapter");
-        List<PhoneModelCli> telefonos = phoneInputPort.findAll().stream()
-                .map(phoneMapperCli::fromDomainToAdapterCli)
+        List<TelefonoModelCli> telefonos = phoneInputPort.findAll().stream()
+                .map(telefonoMapperCli::fromDomainToAdapterCli)
                 .collect(Collectors.toList());
         telefonos.forEach(System.out::println);
     }
