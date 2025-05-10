@@ -42,10 +42,10 @@ public class MenuPrincipal {
 	private final TelefonoMenu telefonoMenu;
 	private final Scanner keyboard;
 
-    public MenuPrincipal(StudyMenu studyMenu, ProfessionMenu professionMenu, TelefonoMenu telefonoMenu) {
-        this.studyMenu = studyMenu;
-        this.professionMenu = professionMenu;
-        this.telefonoMenu = telefonoMenu;
+    public MenuPrincipal() {
+        this.studyMenu = new StudyMenu();
+        this.professionMenu = new ProfessionMenu();
+        this.telefonoMenu = new TelefonoMenu();
         this.personaMenu = new PersonaMenu();
         this.keyboard = new Scanner(System.in);
     }
