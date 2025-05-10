@@ -40,6 +40,8 @@ public class ProfessionInputAdapterCli {
 
     public void mostrarHistorial() {
         log.info("Into mostrarHistorial ProfessionEntity in Input Adapter");
+        var lista = professionInputPort.findAll();
+        System.out.println("Profesiones encontradas: " + lista.size());
         professionInputPort.findAll().stream()
                 .map(professionMapperCli::fromDomainToAdapterCli)
                 .forEach(System.out::println);
