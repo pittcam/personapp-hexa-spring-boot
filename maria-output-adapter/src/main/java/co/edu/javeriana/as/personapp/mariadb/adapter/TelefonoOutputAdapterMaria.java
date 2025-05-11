@@ -30,7 +30,7 @@ public class TelefonoOutputAdapterMaria implements PhoneOutputPort {
     @Override
     public Optional<Phone> findById(String id) {
         Optional<TelefonoEntity> telefonoEntity = telefonoRepositoryMaria.findById(id);
-        return telefonoEntity.map(telefonoMapperMaria::fromAdapterToDomain);
+        return telefonoEntity.map(telefonoMapperMaria::fromAdapterToDomainOwner);
     }
 
 
@@ -54,7 +54,7 @@ public class TelefonoOutputAdapterMaria implements PhoneOutputPort {
     @Override
     public List<Phone> findAll() {
         return telefonoRepositoryMaria.findAll().stream()
-                .map(telefonoMapperMaria::fromAdapterToDomain)
+                .map(telefonoMapperMaria::fromAdapterToDomainOwner)
                 .collect(Collectors.toList());
     }
 }

@@ -34,6 +34,13 @@ public class TelefonoMapperMaria {
 		//phone.setOwner(validateOwner(telefonoEntity.getDuenio()));
 		return phone;
 	}
+	public Phone fromAdapterToDomainOwner(TelefonoEntity telefonoEntity) {
+		Phone phone = new Phone();
+		phone.setNumber(telefonoEntity.getNum());
+		phone.setCompany(telefonoEntity.getOper());
+		phone.setOwner(validateOwner(telefonoEntity.getDuenio()));
+		return phone;
+	}
 
 	private @NonNull Person validateOwner(PersonaEntity duenio) {
 		return duenio != null ? personaMapperMaria.fromAdapterToDomain(duenio) : new Person();
