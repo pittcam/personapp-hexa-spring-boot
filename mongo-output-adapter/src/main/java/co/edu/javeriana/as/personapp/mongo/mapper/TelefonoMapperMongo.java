@@ -9,8 +9,12 @@ import co.edu.javeriana.as.personapp.mongo.document.PersonaDocument;
 import co.edu.javeriana.as.personapp.mongo.document.TelefonoDocument;
 import lombok.NonNull;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @Mapper
 public class TelefonoMapperMongo {
+	private static final Logger log = LoggerFactory.getLogger(TelefonoMapperMongo.class);
 
 	@Autowired
 	private PersonaMapperMongo personaMapperMongo;
@@ -36,6 +40,11 @@ public class TelefonoMapperMongo {
 	}
 
 	private @NonNull Person validateOwner(PersonaDocument duenio) {
-		return duenio != null ? personaMapperMongo.fromAdapterToDomain(duenio) : new Person();
-	}
+    if (duenio == null || duenio.getId() == null) {
+        log.warn("Duenio nulo o sin ID: {}", duenio);
+        throw new IllegalStateException("El dueño del teléfono no tiene identificación");
+    }
+    return personaMapperMongo.fromAdapterToDomain(duenio);
+}
+
 }
