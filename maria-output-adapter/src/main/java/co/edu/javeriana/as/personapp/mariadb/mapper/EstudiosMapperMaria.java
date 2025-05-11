@@ -43,18 +43,20 @@ public class EstudiosMapperMaria {
 
 	public Study fromAdapterToDomain(EstudiosEntity estudiosEntity) {
 		Study study = new Study();
-		study.setPerson(personaMapperMaria.fromAdapterToDomain(estudiosEntity.getPersona()));
-		study.setProfession(profesionMapperMaria.fromAdapterToDomain(estudiosEntity.getProfesion()));
+		//study.setPerson(personaMapperMaria.fromAdapterToDomain(estudiosEntity.getPersona()));
+		//study.setProfession(profesionMapperMaria.fromAdapterToDomain(estudiosEntity.getProfesion()));
 		study.setGraduationDate(validateGraduationDate(estudiosEntity.getFecha()));
 		study.setUniversityName(validateUniversityName(estudiosEntity.getUniver()));
 		return null;
 	}
 
 	private LocalDate validateGraduationDate(Date fecha) {
-		return fecha != null ? fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null;
+		return fecha != null ? new java.sql.Date(fecha.getTime()).toLocalDate() : null;
 	}
+
 
 	private String validateUniversityName(String univer) {
 		return univer != null ? univer : "";
 	}
+
 }

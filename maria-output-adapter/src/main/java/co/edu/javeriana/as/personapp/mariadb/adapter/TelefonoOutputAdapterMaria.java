@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import co.edu.javeriana.as.personapp.mariadb.entity.TelefonoEntity;
 import co.edu.javeriana.as.personapp.mariadb.mapper.TelefonoMapperMaria;
@@ -11,8 +12,13 @@ import co.edu.javeriana.as.personapp.mariadb.repository.TelefonoRepositoryMaria;
 import co.edu.javeriana.as.personapp.domain.Phone;
 import co.edu.javeriana.as.personapp.application.port.out.PhoneOutputPort;
 import co.edu.javeriana.as.personapp.common.annotations.Adapter;
+import org.springframework.stereotype.Component;
 
-@Adapter("phoneOutputAdapterMaria")
+import javax.transaction.Transactional;
+
+@Slf4j
+@Component("phoneOutputAdapterMaria")
+@Transactional
 public class TelefonoOutputAdapterMaria implements PhoneOutputPort {
 
     @Autowired

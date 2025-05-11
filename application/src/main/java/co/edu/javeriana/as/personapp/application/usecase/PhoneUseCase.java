@@ -18,7 +18,7 @@ public class PhoneUseCase implements PhoneInputPort {
 
     private PhoneOutputPort phonePersistence;
 
-    public PhoneUseCase(@Qualifier("phoneOutputAdapter") PhoneOutputPort phonePersistence) {
+    public PhoneUseCase(@Qualifier("phoneOutputAdapterMaria") PhoneOutputPort phonePersistence) {
         this.phonePersistence = phonePersistence;
     }
 
