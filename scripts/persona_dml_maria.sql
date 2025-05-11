@@ -7,7 +7,7 @@ VALUES
 	(147258369,'Pepita','Juarez','F',10),
 	(963852741,'Fede','Perez','M',18);
 
-NSERT INTO `persona_db`.`profesion` (`id`, `nom`, `des`) VALUES
+INSERT INTO `persona_db`.`profesion` (`id`, `nom`, `des`) VALUES
     (1, 'Ingeniero', 'Diseña soluciones técnicas'),
     (2, 'Médico', 'Especialista en salud'),
     (3, 'Profesor', 'Educador profesional');

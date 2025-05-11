@@ -11,7 +11,9 @@ import co.edu.javeriana.as.personapp.mariadb.repository.TelefonoRepositoryMaria;
 import co.edu.javeriana.as.personapp.domain.Phone;
 import co.edu.javeriana.as.personapp.application.port.out.PhoneOutputPort;
 import co.edu.javeriana.as.personapp.common.annotations.Adapter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Adapter("phoneOutputAdapterMaria")
 public class TelefonoOutputAdapterMaria implements PhoneOutputPort {
 
