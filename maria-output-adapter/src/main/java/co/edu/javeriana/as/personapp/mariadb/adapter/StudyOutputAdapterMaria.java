@@ -43,7 +43,7 @@ public class StudyOutputAdapterMaria implements StudyOutputPort{
     @Override
     public List<Study> find() {
         log.debug("Iniciando find en Adaptador MariaDB");
-        return estudiosRepositoryMaria.findAll().stream().map(estudiosMapperMaria::fromAdapterToDomain)
+        return estudiosRepositoryMaria.findAll().stream().map(estudiosMapperMaria::fromAdapterToDomainOwner)
                 .collect(Collectors.toList());
     }
 
@@ -54,7 +54,7 @@ public class StudyOutputAdapterMaria implements StudyOutputPort{
         if (estudiosRepositoryMaria.findById(estudiosEntityPK).isEmpty()) {
             return null;
         } else {
-            return estudiosMapperMaria.fromAdapterToDomain(estudiosRepositoryMaria.findById(estudiosEntityPK).get());
+            return estudiosMapperMaria.fromAdapterToDomainOwner(estudiosRepositoryMaria.findById(estudiosEntityPK).get());
         }
     }
 
