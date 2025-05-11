@@ -1,0 +1,8 @@
+rootProject.name = 'personapp-hexa-spring-boot'
+include(':maria-output-adapter')
+include(':cli-input-adapter')
+include(':domain')
+include(':mongo-output-adapter')
+include(':common')
+include(':application')
+include(':rest-input-adapter')
