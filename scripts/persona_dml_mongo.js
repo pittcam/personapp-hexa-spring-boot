@@ -43,8 +43,6 @@ db.persona.insertMany([
 	}
 ], { ordered: false })
 
-use persona_db
-
 // Insertar profesiones
 db.profesion.insertMany([
   { _id: 1, nom: "Ingeniero", des: "Diseña soluciones técnicas", _class: "co.edu.javeriana.as.personapp.mongo.document.ProfesionDocument" },

@@ -28,8 +28,8 @@ services:
     volumes:
       - ./mongo/mongodb:/data/db:rw
       - ./mongo/mongoconfig:/data/configdb:rw
-      - ./scripts/persona_ddl_mongo.js:/docker-entrypoint-initdb.d/persona_ddl_mongo.js:ro
-      - ./scripts/persona_dml_mongo.js:/docker-entrypoint-initdb.d/persona_dml_mongo.js:ro
+      - ./scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
     networks:
       - lab-network
 
@@ -45,10 +45,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3306/persona_db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: r00t123
-      SPRING_DATA_MONGODB_URI: mongodb://admin:admin@mongodb:27017/admin
-      SPRING_DATA_MONGODB_DATABASE: persona_db
+      SPRING_DATA_MONGODB_URI: mongodb://admin:admin@mongodb:27017/persona_db?authSource=admin
       
-
     ports:
       - "3000:3000"
     networks:
