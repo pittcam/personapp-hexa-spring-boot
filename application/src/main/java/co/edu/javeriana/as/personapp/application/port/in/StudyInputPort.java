@@ -23,5 +23,5 @@ public interface StudyInputPort {
 
     public Study findOne(Integer identificationPerson, Integer identificationProfession) throws NoExistException;
 
-    public Integer count();
+   public long count();
 }

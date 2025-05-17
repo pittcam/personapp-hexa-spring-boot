@@ -60,4 +60,9 @@ public class ProfessionOutputAdapterMongo implements ProfessionOutputPort {
                 .map(profesionMapperMongo::fromAdapterToDomain)
                 .orElse(null);
     }
+
+     @Override
+    public Long count() {
+        return profesionRepositoryMongo.count();
+    }
 }

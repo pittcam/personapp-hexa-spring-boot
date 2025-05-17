@@ -61,4 +61,13 @@ public class PersonOutputAdapterMongo implements PersonOutputPort {
 		}
 	}
 
+
+	@Override
+	public Long count() {
+		log.debug("Into count on Adapter MongoDB");
+		Long result = personaRepositoryMongo.count();
+		log.info("MongoDB person count: {}", result);
+		return result;
+	}
+
 }

@@ -71,7 +71,9 @@ public class StudyUseCase implements StudyInputPort {
     }
 
     @Override
-    public Integer count() {
+    public long count() {
         return findAll().size();
     }
+
+   
 }

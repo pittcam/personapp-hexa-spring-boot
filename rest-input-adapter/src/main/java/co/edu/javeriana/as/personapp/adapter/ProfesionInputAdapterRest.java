@@ -122,4 +122,19 @@ public class ProfesionInputAdapterRest {
             return false;
         }
     }
+
+    public Long CountProfesiones(String option) {
+        log.info("Into CountProfesiones in Adapter with option: {}", option);
+        try {
+            setOutputPortInjection(option);
+            Long count = inputPort.count();
+            log.info("Profession count result: {}", count);
+            return count;
+        } catch (InvalidOptionException e) {
+            log.error("Error counting professions: {}", e.getMessage());
+            return 0L;
+        }
+    }
+
+    
 }

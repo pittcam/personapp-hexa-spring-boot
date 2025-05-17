@@ -133,4 +133,18 @@ public class EstudioInputAdapterRest {
         }
     }
 
+    public Long CountEstudios(String option) {
+        log.info("Into CountProfesiones in Adapter with option: {}", option);
+        try {
+            setStudyOutputPortInjection(option);
+            Long count = studyInputPort.count();
+            log.info("Studies count result: {}", count);
+            return count;
+        } catch (InvalidOptionException e) {
+            log.error("Error counting professions: {}", e.getMessage());
+            return 0L;
+        }
+    }
+
+
 }

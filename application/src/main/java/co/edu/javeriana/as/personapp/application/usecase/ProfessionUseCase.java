@@ -65,7 +65,7 @@ public class ProfessionUseCase implements ProfessionInputPort {
     }
 
     @Override
-    public Integer count() {
+    public long count() {
         return findAll().size();
     }
 

@@ -131,4 +131,19 @@ public class PersonaInputAdapterRest {
 		}
 	}
 
+	public Long CountPersonas(String option) {
+		log.info("Into CountPersonas in Adapter with option: {}", option);
+		try {
+			setPersonOutputPortInjection(option);
+			Long count = personInputPort.count();
+			log.info("Person count result: {}", count);
+			return count;
+		} catch (InvalidOptionException e) {
+			log.error("Error counting persons: {}", e.getMessage());
+			return 0L;
+		}
+	}
+
+	
+
 }

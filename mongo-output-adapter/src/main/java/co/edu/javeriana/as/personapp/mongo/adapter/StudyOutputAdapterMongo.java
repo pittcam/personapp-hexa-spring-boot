@@ -61,4 +61,11 @@ public class StudyOutputAdapterMongo implements StudyOutputPort {
                 .map(estudiosMapperMongo::fromAdapterToDomain)
                 .orElse(null);
     }
+
+    @Override
+    public long count() {
+        return estudiosRepositoryMongo.count();
+    }
+
+
 }

@@ -53,4 +53,13 @@ public class EstudioControllerV1 {
         log.info("esta en el metodo eliminarPersona en el controller del api");
         return estudioInputAdapterRest.eliminarEstudio(database.toUpperCase(), personCC, profesionId);
     }
+
+    @ResponseBody
+    @GetMapping(path="/count/{database}")
+    public Long countStudies(@PathVariable String database) {
+        log.info("Into studies count REST API");
+        return estudioInputAdapterRest.CountEstudios(database.toUpperCase());
+    }
+
+
 }

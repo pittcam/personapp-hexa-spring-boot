@@ -68,8 +68,10 @@ public class PersonUseCase implements PersonInputPort {
 	}
 
 	@Override
-	public Integer count() {
-		return findAll().size();
+	public Long count() {
+		log.debug("Into count on PersonUseCase");
+		// Usa el método count() del puerto de salida en lugar de findAll().size()
+		return personPersintence.count();
 	}
 
 	@Override

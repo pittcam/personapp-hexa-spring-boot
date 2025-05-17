@@ -23,7 +23,7 @@ public interface ProfessionInputPort {
 
     public Profession findOne(Integer identification) throws NoExistException;
 
-    public Integer count();
+    public long count();
 
     public List<Study> getStudies(Integer identification) throws NoExistException;
 }

@@ -56,4 +56,14 @@ public class PersonaInputAdapterCli {
 	        .forEach(System.out::println);
 	}
 
+	public void countPersons() {
+	log.info("Counting persons in Input Adapter");
+		try {
+			Long count = personInputPort.count();
+			System.out.println("Total number of persons: " + count);
+		} catch (Exception e) {
+			System.out.println("Error counting persons: " + e.getMessage());
+		}
+	}
+
 }

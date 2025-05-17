@@ -49,4 +49,14 @@ public class StudyInputAdapterCli {
                 .collect(Collectors.toList());
         studies.forEach(System.out::println);
     }
+
+    public void countStudies() {
+    log.info("Counting studies in Input Adapter");
+    try {
+        Long count = studyInputPort.count();
+        System.out.println("Total number of studies: " + count);
+    } catch (Exception e) {
+        System.out.println("Error counting studies: " + e.getMessage());
+    }
+    }
 }

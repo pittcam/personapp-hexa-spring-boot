@@ -58,4 +58,12 @@ public class PersonOutputAdapterMaria implements PersonOutputPort {
 		}
 	}
 
+	@Override
+	public Long count() {
+		log.debug("Into count on Adapter MariaDB");
+		Long result = personaRepositoryMaria.count();
+		log.info("MariaDB person count: {}", result);
+		return result;
+	}
+
 }

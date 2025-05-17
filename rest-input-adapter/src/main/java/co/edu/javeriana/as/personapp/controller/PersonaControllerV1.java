@@ -27,6 +27,9 @@ public class PersonaControllerV1 {
 	
 	@Autowired
 	private PersonaInputAdapterRest personaInputAdapterRest;
+
+	@Autowired
+    private PersonaInputAdapterRest personInputAdapterRest;
 	
 	@ResponseBody
 	@GetMapping(path = "/{database}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -62,4 +65,12 @@ public class PersonaControllerV1 {
 		log.info("esta en el metodo eliminarPersona en el controller del api");
 		return personaInputAdapterRest.eliminarPersona(database, id);
 	}
+
+	@ResponseBody
+    @GetMapping(path="/count/{database}")
+    public Long countPersons(@PathVariable String database) {
+        log.info("Into personas count REST API");
+        return personInputAdapterRest.CountPersonas(database.toUpperCase());
+    }
+
 }

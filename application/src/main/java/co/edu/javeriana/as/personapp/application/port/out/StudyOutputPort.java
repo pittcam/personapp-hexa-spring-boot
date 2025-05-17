@@ -11,5 +11,6 @@ public interface StudyOutputPort {
     public Boolean delete(Integer personId, Integer professionId);
     public List<Study> find();
     public Study findById(Integer personId, Integer professionId);
+    public long count();
 
 }

@@ -14,4 +14,5 @@ public interface ProfessionOutputPort {
     public List<Profession> find();
 
     public Profession findById(Integer identification);
+    public Long count();
 }

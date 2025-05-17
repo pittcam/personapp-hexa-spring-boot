@@ -44,4 +44,14 @@ public class ProfessionInputAdapterCli {
                 .map(professionMapperCli::fromDomainToAdapterCli)
                 .forEach(System.out::println);
     }
+
+    public void countProfessions() {
+	log.info("Counting professions in Input Adapter");
+		try {
+			Long count = professionInputPort.count();
+			System.out.println("Total number of persons: " + count);
+		} catch (Exception e) {
+			System.out.println("Error counting persons: " + e.getMessage());
+		}
+	}
 }

@@ -54,4 +54,12 @@ public class ProfessionOutputAdapterMaria implements ProfessionOutputPort {
             return profesionMapperMaria.fromAdapterToDomain(profesionRepository.findById(identification).get());
         }
     }
+
+    @Override
+    public Long count() {
+        log.debug("Into count on ProfessionOutputAdapterMaria");
+        Long result = profesionRepository.count();
+        log.info("MariaDB profession count: {}", result);
+        return result;
+    }
 }

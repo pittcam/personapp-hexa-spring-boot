@@ -58,4 +58,11 @@ public class StudyOutputAdapterMaria implements StudyOutputPort{
         }
     }
 
+    @Override
+    public long count() {
+        log.debug("Into count on StudyOutputAdapterMaria");
+        Long result = estudiosRepositoryMaria.count();
+        log.info("MariaDB study count: {}", result);
+        return result;
+    }
 }

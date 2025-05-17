@@ -52,4 +52,12 @@ public class ProfesionControllerV1 {
         return profesionInputAdapterRest.DeleterProfesion(database, id);
     }
 
+    @ResponseBody
+    @GetMapping(path="/count/{database}")
+    public Long countProfessions(@PathVariable String database) {
+        log.info("Into professions count REST API");
+        return profesionInputAdapterRest.CountProfesiones(database.toUpperCase());
+    }
+
+
 }
