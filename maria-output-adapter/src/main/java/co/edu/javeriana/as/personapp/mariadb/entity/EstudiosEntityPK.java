@@ -12,9 +12,6 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class EstudiosEntityPK implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@Basic(optional = false)
 	@Column(name = "id_prof", nullable = false)

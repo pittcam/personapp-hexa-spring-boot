@@ -28,7 +28,8 @@ services:
     volumes:
       - ./mongo/mongodb:/data/db:rw
       - ./mongo/mongoconfig:/data/configdb:rw
-      - ./scripts/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./scripts/persona_ddl_mongo.js:/docker-entrypoint-initdb.d/persona_ddl_mongo.js:ro
+      - ./scripts/persona_dml_mongo.js:/docker-entrypoint-initdb.d/persona_dml_mongo.js:ro
 
     networks:
       - lab-network
