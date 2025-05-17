@@ -11,4 +11,5 @@ public interface PhoneOutputPort {
     boolean delete(String id);
     List<Phone> findAll();
     Optional<Phone> findById(String id);
+    Long count();
 }

@@ -81,4 +81,14 @@ public class TelefonoInputAdapterCli {
             System.out.println(e.getMessage());
         }
     }
+
+    public void countPhones() {
+    log.info("Counting phones in Input Adapter");
+    try {
+        Long count = phoneInputPort.count();
+        System.out.println("Total number of phones: " + count);
+    } catch (Exception e) {
+        System.out.println("Error counting phones: " + e.getMessage());
+    }
+    }
 }

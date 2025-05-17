@@ -33,7 +33,6 @@ public class TelefonoOutputAdapterMaria implements PhoneOutputPort {
         return telefonoEntity.map(telefonoMapperMaria::fromAdapterToDomainOwner);
     }
 
-
     @Override
     public Phone save(Phone phone) {
         TelefonoEntity telefonoEntity = telefonoMapperMaria.fromDomainToAdapter(phone);
@@ -56,5 +55,12 @@ public class TelefonoOutputAdapterMaria implements PhoneOutputPort {
         return telefonoRepositoryMaria.findAll().stream()
                 .map(telefonoMapperMaria::fromAdapterToDomainOwner)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Long count() {
+        Long result = telefonoRepositoryMaria.count();
+        log.info("MariaDB phone count: {}", result);
+        return result;
     }
 }

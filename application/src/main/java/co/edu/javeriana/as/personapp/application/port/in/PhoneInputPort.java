@@ -22,5 +22,5 @@ public interface PhoneInputPort {
 
     Phone findOne(String id) throws NoExistException;
 
-    int count();
+    Long count();
 }

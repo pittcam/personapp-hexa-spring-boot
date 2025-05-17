@@ -70,7 +70,7 @@ public class PhoneUseCase implements PhoneInputPort {
     }
 
     @Override
-    public int count() {
-        return findAll().size();
+    public Long count() {
+        return phonePersistence.count();
     }
 }
