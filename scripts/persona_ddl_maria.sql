@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS `persona_db`.`telefono` (
  `oper` VARCHAR(45) NOT NULL,
  `duenio` INT(15) NOT NULL, 
  CONSTRAINT `telefono_pk` PRIMARY KEY (`num`), 
- CONSTRAINT `telefono_persona_fk` FOREIGN KEY (`duenio`) REFERENCES `persona_db`.`persona` (`cc`)
+ CONSTRAINT `telefono_persona_fk` FOREIGN KEY (`duenio`) 
+ REFERENCES `persona_db`.`persona` (`cc`)
 );
 --
 CREATE TABLE IF NOT EXISTS `persona_db`.`estudios` (
@@ -47,3 +48,4 @@ CREATE TABLE IF NOT EXISTS `persona_db`.`estudios` (
 --
 COMMIT;
 FLUSH PRIVILEGES;
+
