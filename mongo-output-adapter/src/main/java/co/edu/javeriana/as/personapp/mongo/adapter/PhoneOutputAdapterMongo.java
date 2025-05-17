@@ -51,6 +51,11 @@ public class PhoneOutputAdapterMongo implements PhoneOutputPort {
                 .map(telefonoMapperMongo::fromAdapterToDomain)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Long count() {
+        return telefonoRepositoryMongo.count();
+    }
 }
 
 

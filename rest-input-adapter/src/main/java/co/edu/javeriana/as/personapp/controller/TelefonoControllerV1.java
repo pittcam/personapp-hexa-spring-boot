@@ -5,6 +5,8 @@ import co.edu.javeriana.as.personapp.model.request.TelefonoRequest;
 import co.edu.javeriana.as.personapp.model.response.TelefonoResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,5 +54,12 @@ public class TelefonoControllerV1 {
     public Boolean eliminarTelefono(@PathVariable String database, @PathVariable String number) {
         log.info("\"Into telefonos REST API");
         return telefonoInputAdapterRest.DeleteTelefono(database, number);
+    }
+
+    @ResponseBody
+    @GetMapping(path="/count/{database}")
+    public Long countPhones(@PathVariable String database) {
+        log.info("Into telefonos count REST API");
+        return telefonoInputAdapterRest.CountTelefonos(database.toUpperCase());
     }
 }

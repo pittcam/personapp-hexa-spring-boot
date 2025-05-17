@@ -143,4 +143,17 @@ public class TelefonoInputAdapterRest {
         }
     }
 
+    public Long CountTelefonos(String option) {
+        log.info("Into CountTelefonos in Adapter with option: " + option);
+        try {
+            setOutputPortInjection(option);
+            Long count = phoneInputPort.count();
+            log.info("Count result: " + count);
+            return count;
+        } catch (InvalidOptionException e) {
+            log.error("Error counting phones: " + e.getMessage());
+            return 0L;
+        }
+    }
+
 }
