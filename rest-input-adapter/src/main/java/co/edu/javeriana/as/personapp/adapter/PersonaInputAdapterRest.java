@@ -105,16 +105,13 @@ public class PersonaInputAdapterRest {
 			}else {
 				return personaMapperRest.fromDomainToAdapterRestMongo(person);
 			}
-		} catch (InvalidOptionException e) {
-			log.warn(e.getMessage());
-			return new PersonaResponse("", "", "", "", "", "", "");
-		} catch (NumberFormatException e) {
-			log.warn(e.getMessage());
-			return new PersonaResponse("", "", "", "", "", "", "");
-		} catch (NoExistException e) {
-			log.warn(e.getMessage());
-			return new PersonaResponse("", "", "", "", "", "", "");
-		}
+		} catch (InvalidOptionException | NumberFormatException | NoExistException e) {
+        	log.warn("Error controlado: {}", e.getMessage());
+        	return new PersonaResponse("", "", "", "", "", "", "");
+    	} catch (Exception e) {
+        	log.error("❌ Error inesperado al editar persona", e); 
+        	return new PersonaResponse("", "", "", "", "", "", "ERROR");
+    	}
 	}
 
 	public Boolean eliminarPersona(String database, Integer id) {
